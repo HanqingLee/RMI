@@ -5,13 +5,13 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ConcurrentClient {
-	static int concurren_num = 500;
+	static int concurrent_num = 500;
 	
 	public static void main(String args[]) throws InterruptedException {
 		ConcurrentClient cc = new ConcurrentClient();
-		ExecutorService tp = Executors.newFixedThreadPool(500);
+		ExecutorService tp = Executors.newFixedThreadPool(concurrent_num);
 		ConcurrentClient.autoregister register = cc.new autoregister();
-		for (int i = 0; i < concurren_num; i++) 
+		for (int i = 0; i < concurrent_num; i++) 
 			tp.execute(register);
 		
 		tp.shutdown();

@@ -40,10 +40,9 @@ public class RegistryServer {
 		// returns the result.
 
 		ExecutorService tp = Executors.newCachedThreadPool();
-		CommunicationModule cm = new CommunicationModule();
+		
 		ServerSocket server = new ServerSocket(port);
 		System.out.println("Registry server started");
-
 		// Start a new thread to initiate listening.
 		tp.execute(new Runnable() {
 			public void run() {
@@ -55,6 +54,7 @@ public class RegistryServer {
 						tp.execute(new Runnable() {
 							public void run() {
 								// Command indicates the service the client is looking for.
+								CommunicationModule cm = new CommunicationModule();
 								Object command;
 								try {
 									command = cm.RecObj(newsoc);

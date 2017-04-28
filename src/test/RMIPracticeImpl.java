@@ -25,6 +25,10 @@ public class RMIPracticeImpl implements RMIPractice {
 		String sql;
 
 		try {
+			//initialize table
+			sql = "create table USER_INFO( id INT not null AUTO_INCREMENT,name VARCHAR(50) not null, password VARCHAR(50) not null,primary key(ID));";
+			statement.execute(sql);
+
 			// check if there has existed the same user name
 			ResultSet rs = null;
 			sql = "select * from USER_INFO where name='" + username + "'";
@@ -60,6 +64,10 @@ public class RMIPracticeImpl implements RMIPractice {
 		String sql;
 
 		try {
+			//initialize table
+			sql = "create table USER_INFO( id INT not null AUTO_INCREMENT,name VARCHAR(50) not null, password VARCHAR(50) not null,primary key(ID));";
+			statement.execute(sql);
+
 			// check if there is the user name required
 			ResultSet rs = null;
 			sql = "select * from USER_INFO where name='" + username + "'";
